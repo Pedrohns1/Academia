@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Fitness - Sua Academia Interativa</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css22.css">
+</head>
+<body>
+
+    
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold text-blue-800">Capital Fitness</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="hover:text-blue-600 transition duration-300">Início</a></li>
+                    <li><a href="#calculadoras" class="hover:text-blue-600 transition duration-300">Calculadoras</a></li>
+                    <li><a href="#planos" class="hover:text-blue-600 transition duration-300">Planos</a></li>
+                    <li><a href="#contato" class="hover:text-blue-600 transition duration-300">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+ 
+    <main class="container mx-auto p-4 md:p-8">
+        
+        
+        <section id="home" class="mb-16 bg-white p-6 rounded-xl shadow-xl">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-1/2">
+                    <h1 class="text-5xl font-extrabold text-blue-800 mb-4">
+                        Transforme Seu Potencial. Calcule Seu Limite.
+                    </h1>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Use nossas ferramentas interativas para planejar sua jornada fitness e alcançar resultados reais.
+                    </p>
+                    <a href="#calculadoras" class="inline-block px-8 py-3 rounded-full text-white font-bold btn-primary">
+                        Comece a Calcular
+                    </a>
+                </div>
+                
+                
+                <div class="lg:w-1/2">
+                    
+                    <img src="C:\Users\Gustavo\Downloads\atividade html\Logo academia.jpg" alt="Pessoa treinando na academia" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                    <p class="mt-2 text-sm text-gray-500 text-center">
+                      
+                    </p>
+                </div>
+            </div>
+        </section>
+
+       
+        <section id="calculadoras" class="mb-16">
+            <h2 class="section-heading text-4xl font-bold mb-8 text-center text-blue-800">
+                Calculadoras Fitness
+            </h2>
+            
+            
+            <div id="calculadoras-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700">
+                    <h3 class="text-2xl font-semibold mb-4">Calculadora de IMC</h3>
+                    <p class="text-sm text-gray-600 mb-4">Índice de Massa Corporal (Peso / Altura²).</p>
+                    
+                    
+                    <form id="form-imc" class="space-y-4">
+                        <div>
+                            <label for="peso" class="block text-sm font-medium">Peso (kg):</label>
+                            <input type="number" id="peso" required min="1" step="0.1" class="w-full mt-1 p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="altura" class="block text-sm font-medium">Altura (metros, ex: 1.75):</label>
+                            <input type="number" id="altura" required min="0.5" step="0.01" class="w-full mt-1 p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <button type="button" onclick="calcularIMC()" class="btn-primary w-full py-2 rounded-lg text-white font-bold">
+                            Calcular IMC
+                        </button>
+                    </form>
+                    
+                    
+                    <div id="resultado-imc" class="mt-4 p-3 bg-gray-50 rounded-lg hidden">
+                        <p class="font-bold">Seu IMC: <span id="imc-valor"></span></p>
+                        <p>Classificação: <span id="imc-classificacao" class="font-semibold"></span></p>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700">
+                    <h3 class="text-2xl font-semibold mb-4">Taxa Metabólica Basal (TMB)</h3>
+                    <p class="text-sm text-gray-600 mb-4">Estima as calorias gastas em repouso (Fórmula de Harris-Benedict).</p>
+                    
+                    <form id="form-tmb" class="space-y-4">
+                        <div>
+                            <label for="idade" class="block text-sm font-medium">Idade (anos):</label>
+                            <input type="number" id="idade" required min="15" max="120" class="w-full mt-1 p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                         <div>
+                            <label for="peso-tmb" class="block text-sm font-medium">Peso (kg):</label>
+                            <input type="number" id="peso-tmb" required min="1" step="0.1" class="w-full mt-1 p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="altura-tmb" class="block text-sm font-medium">Altura (cm):</label>
+                            <input type="number" id="altura-tmb" required min="50" class="w-full mt-1 p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="genero" class="block text-sm font-medium">Gênero:</label>
+                            <select id="genero" required class="w-full mt-1 p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                        <button type="button" onclick="calcularTMB()" class="btn-primary w-full py-2 rounded-lg text-white font-bold">
+                            Calcular TMB
+                        </button>
+                    </form>
+
+                    
+                    <div id="resultado-tmb" class="mt-4 p-3 bg-gray-50 rounded-lg hidden">
+                        <p class="font-bold">Sua TMB: <span id="tmb-valor" class="text-xl text-blue-800"></span> Kcal/dia</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        
+        <section id="planos" class="mb-16 bg-white p-6 rounded-xl shadow-xl">
+            <h2 class="section-heading text-4xl font-bold mb-8 text-center text-blue-800">
+                Gerador de Plano de Treino Rápido
+            </h2>
+            
+            <div class="max-w-xl mx-auto space-y-4">
+                <p class="text-center text-gray-700">Selecione seu objetivo para gerar um plano inicial customizado.</p>
+                
+                <div class="flex flex-col md:flex-row gap-4">
+                    
+                    <select id="objetivo-treino" onchange="gerarPlanoTreino()" class="flex-grow p-3 border rounded-lg text-lg focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" disabled selected>Selecione seu Objetivo</option>
+                        <option value="massa">Ganho de Massa Muscular</option>
+                        <option value="peso">Perda de Peso / Cardio</option>
+                        <option value="resistencia">Resistência e Condicionamento</option>
+                    </select>
+                    <button type="button" onclick="gerarPlanoTreino()" class="btn-primary py-3 px-6 rounded-lg text-white font-bold">
+                        Gerar Plano
+                    </button>
+                </div>
+                
+                
+                <div id="resultado-plano" class="mt-6 p-6 bg-blue-50 rounded-lg border-l-8 border-blue-700 hidden">
+                    
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="contato" class="bg-gray-800 text-white p-8 rounded-xl shadow-2xl">
+            <h2 class="text-3xl font-bold mb-6 text-center">Fale Conosco</h2>
+            <form class="max-w-md mx-auto space-y-4">
+                <div>
+                    <label for="nome-contato" class="block text-sm font-medium">Seu Nome</label>
+                    <input type="text" id="nome-contato" required class="w-full mt-1 p-2 border rounded-lg text-gray-800">
+                </div>
+                <div>
+                    <label for="email-contato" class="block text-sm font-medium">Seu E-mail</label>
+                    <input type="email" id="email-contato" required class="w-full mt-1 p-2 border rounded-lg text-gray-800">
+                </div>
+                <div>
+                    <label for="mensagem" class="block text-sm font-medium">Mensagem</label>
+                    <textarea id="mensagem" rows="4" required class="w-full mt-1 p-2 border rounded-lg text-gray-800"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-bold">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </section>
+        
+    </main>
+
+  
+    <footer class="bg-gray-900 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 PowerUp Fitness. Todos os direitos reservados.</p>
+            <div class="mt-2 text-sm text-gray-400">
+                <a href="#" class="hover:text-blue-500">Termos de Uso</a> | 
+                <a href="#" class="hover:text-blue-500">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+
+    
+    <script>
+        
+        function formatarNumero(numero) {
+            return parseFloat(numero).toFixed(2);
+        }
+
+        
+        function calcularIMC() {
+            
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const resultadoDiv = document.getElementById('resultado-imc');
+            const imcValorSpan = document.getElementById('imc-valor');
+            const imcClassificacaoSpan = document.getElementById('imc-classificacao');
+
+            
+            if (peso <= 0 || altura <= 0 || isNaN(peso) || isNaN(altura)) {
+                imcClassificacaoSpan.textContent = "Dados inválidos.";
+                imcClassificacaoSpan.className = "font-semibold text-blue-800"; 
+                resultadoDiv.classList.remove('hidden');
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+            let classificacao = "";
+            let corClassificacao = "";
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+                corClassificacao = "text-yellow-600";
+            } else if (imc >= 18.5 && imc < 25) {
+                classificacao = "Peso normal";
+                corClassificacao = "text-green-600";
+            } else if (imc >= 25 && imc < 30) {
+                classificacao = "Sobrepeso";
+                corClassificacao = "text-orange-500";
+            } else {
+                classificacao = "Obesidade";
+
+                corClassificacao = "text-red-600";
+            }
+
+            imcValorSpan.textContent = formatarNumero(imc);
+            imcClassificacaoSpan.textContent = classificacao;
+            imcClassificacaoSpan.className = `font-semibold ${corClassificacao}`;
+            resultadoDiv.classList.remove('hidden');
+        }
+
+        function calcularTMB() {
+            const idade = parseFloat(document.getElementById('idade').value);
+            const pesoTMB = parseFloat(document.getElementById('peso-tmb').value);
+            const alturaTMB = parseFloat(document.getElementById('altura-tmb').value);
+            const genero = document.getElementById('genero').value;
+            
+            const resultadoDiv = document.getElementById('resultado-tmb');
+            const tmbValorSpan = document.getElementById('tmb-valor');
+            
+            
+            if (idade <= 0 || pesoTMB <= 0 || alturaTMB <= 0 || !genero || isNaN(idade) || isNaN(pesoTMB) || isNaN(alturaTMB)) {
+                tmbValorSpan.textContent = "Preencha todos os campos.";
+
+                tmbValorSpan.className = "text-blue-800";
+                resultadoDiv.classList.remove('hidden');
+                return;
+            }
+
+            let tmb = 0;
+
+            if (genero === 'masculino') {
+                tmb = 66 + (13.7 * pesoTMB) + (5 * alturaTMB) - (6.8 * idade);
+
+            } else if (genero === 'feminino') {
+
+                tmb = 655 + (9.6 * pesoTMB) + (1.8 * alturaTMB) - (4.7 * idade);
+            }
+
+            tmbValorSpan.textContent = formatarNumero(tmb);
+
+            tmbValorSpan.className = "text-xl text-blue-800"; 
+            resultadoDiv.classList.remove('hidden');
+        }
+
+
+        function gerarPlanoTreino() {
+            const objetivo = document.getElementById('objetivo-treino').value;
+            const resultadoDiv = document.getElementById('resultado-plano');
+
+            if (!objetivo) {
+
+                resultadoDiv.innerHTML = '<p class="text-blue-800 font-bold">Por favor, selecione um objetivo válido para gerar o plano.</p>';
+                resultadoDiv.classList.remove('hidden');
+                return;
+            }
+            
+            let titulo = '';
+            let dias = [];
+            
+            if (objetivo === 'massa') {
+                titulo = 'Plano: Ganho de Massa Muscular (Foco em Hipertrofia)';
+
+                dias = [
+                    { dia: 'Segunda', treino: 'Peito, Tríceps e Abdômen (3x8-12 repetições)' },
+                    { dia: 'Terça', treino: 'Costas e Bíceps (3x8-12 repetições)' },
+                    { dia: 'Quarta', treino: 'Descanso Ativo ou Cardio Leve' },
+                    { dia: 'Quinta', treino: 'Ombros e Pernas (Foco em Quadríceps)' },
+                    { dia: 'Sexta', treino: 'Pernas (Foco em Posteriores e Panturrilha)' }
+                ];
+
+            } else if (objetivo === 'peso') {
+                titulo = 'Plano: Perda de Peso (Foco em Gasto Calórico)';
+                dias = [
+                    { dia: 'Segunda', treino: 'Cardio HIIT (30 minutos) + Circuito Funcional' },
+                    { dia: 'Terça', treino: 'Treino de Força Full Body (3x15 repetições)' },
+                    { dia: 'Quarta', treino: 'Corrida/Caminhada Rápida (45 minutos)' },
+                    { dia: 'Quinta', treino: 'Treino de Força Full Body' },
+                    { dia: 'Sexta', treino: 'Cardio Longo e Moderado (60 minutos)' }
+                ];
+
+            } else if (objetivo === 'resistencia') {
+                titulo = 'Plano: Resistência e Condicionamento (Alta Performance)';
+                dias = [
+                    { dia: 'Segunda', treino: 'Treino em Circuito de Alta Intensidade (Cross-Training)' },
+                    { dia: 'Terça', treino: 'Treino de Corrida com Intervalos' },
+                    { dia: 'Quarta', treino: 'Natação ou Ciclismo' },
+                    { dia: 'Quinta', treino: 'Treino de Força com Baixo Peso e Altas Repetições' },
+                    { dia: 'Sexta', treino: 'Treino Integrado (Endurance + Core)' }
+                ];
+            }
+            
+            let htmlContent = `<h4 class="text-xl font-bold mb-4">${titulo}</h4>`;
+            htmlContent += '<ul class="space-y-2">';
+
+            dias.forEach(item => {
+                htmlContent += `<li class="p-2 bg-blue-100 rounded-lg"><span class="font-semibold">${item.dia}:</span> ${item.treino}</li>`;
+            });
+            
+            htmlContent += '</ul>';
+            htmlContent += '<p class="text-sm mt-4 text-gray-700">Lembre-se: Consulte um profissional para um plano personalizado!</p>';
+
+            resultadoDiv.innerHTML = htmlContent;
+            resultadoDiv.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
